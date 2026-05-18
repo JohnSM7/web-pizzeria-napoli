@@ -1,0 +1,421 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "Piccola Napoli" [ref=e4] [cursor=pointer]:
+        - /url: "#top"
+        - img [ref=e6]
+        - generic [ref=e10]: Piccola Napoli
+      - link "Reservar" [ref=e12] [cursor=pointer]:
+        - /url: https://reservaspiccola.carrd.co/
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - img "Pizza napolitana recién salida del horno" [ref=e17]
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e22]: Solete Guía Repsol 2024
+          - generic [ref=e24]:
+            - img [ref=e25]
+            - strong [ref=e27]: "4.7"
+            - generic [ref=e28]: · 4865 reseñas Google
+          - generic [ref=e29]:
+            - img [ref=e30]
+            - text: Desde 2010
+        - paragraph [ref=e33]: Fatto a mano in Madrid
+        - heading "Piccola Napoli" [level=1] [ref=e34]:
+          - generic [ref=e35]: Piccola
+          - generic [ref=e36]: Napoli
+        - generic [ref=e37]:
+          - paragraph [ref=e38]:
+            - text: Auténtica pizza napolitana. Masa de
+            - strong [ref=e39]: 72 horas
+            - text: ", harinas italianas, tomate San Marzano DOP y mozzarella fior di latte."
+            - generic [ref=e40]: Pizza · Casa · Famiglia.
+          - generic [ref=e41]:
+            - link "Reserva tu mesa" [ref=e42] [cursor=pointer]:
+              - /url: https://reservaspiccola.carrd.co/
+              - text: Reserva tu mesa
+              - img [ref=e43]
+            - link "Ver la carta" [ref=e45] [cursor=pointer]:
+              - /url: "#carta"
+    - generic [ref=e46]:
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - paragraph [ref=e52]: Il nostro manifesto
+          - paragraph [ref=e53]: 2010 — 2026 · 16 años
+        - paragraph [ref=e55]:
+          - text: No vendemos pizza.
+          - text: Servimos memoria.
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - generic [ref=e59]: Pizza
+          - generic [ref=e60]: •
+          - generic [ref=e61]: Casa
+          - generic [ref=e62]: •
+          - generic [ref=e63]: Famiglia
+          - generic [ref=e64]: •
+          - generic [ref=e65]: Tradizione
+          - generic [ref=e66]: •
+          - generic [ref=e67]: Forno a Legna
+          - generic [ref=e68]: •
+          - generic [ref=e69]: Mozzarella
+          - generic [ref=e70]: •
+        - generic [ref=e71]:
+          - generic [ref=e72]: Pizza
+          - generic [ref=e73]: •
+          - generic [ref=e74]: Casa
+          - generic [ref=e75]: •
+          - generic [ref=e76]: Famiglia
+          - generic [ref=e77]: •
+          - generic [ref=e78]: Tradizione
+          - generic [ref=e79]: •
+          - generic [ref=e80]: Forno a Legna
+          - generic [ref=e81]: •
+          - generic [ref=e82]: Mozzarella
+          - generic [ref=e83]: •
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - paragraph [ref=e86]: 72h
+          - paragraph [ref=e87]: Fermentación lenta de la masa para una digestibilidad perfecta
+        - generic [ref=e88]:
+          - paragraph [ref=e89]: 485°C
+          - paragraph [ref=e90]: Temperatura del horno de leña, herencia directa de Nápoles
+        - generic [ref=e91]:
+          - paragraph [ref=e92]: 90s
+          - paragraph [ref=e93]: Tiempo exacto de cocción para sellar sabor y mantener jugosidad
+    - generic [ref=e95]:
+      - generic [ref=e96]:
+        - generic [ref=e97]:
+          - paragraph [ref=e98]: Le nostre stelle
+          - heading "Las que no te puedes perder" [level=2] [ref=e99]
+        - paragraph [ref=e100]: Cinco pizzas que resumen lo que hacemos. Hay otras 20 esperándote en la carta completa.
+      - generic [ref=e101]:
+        - article [ref=e102]:
+          - img "Pizza Piccola Napoli" [ref=e104]
+          - generic [ref=e106]: La firma
+          - generic [ref=e107]:
+            - paragraph [ref=e108]: La firma della casa
+            - heading "Piccola Napoli" [level=3] [ref=e109]
+            - paragraph [ref=e110]: Tomate San Marzano DOP, fior di latte, salami napolitano, friarielli y una lluvia final de pecorino romano.
+            - generic [ref=e111]:
+              - generic [ref=e112]: 14,90€
+              - generic [ref=e113]: Pedir →
+        - article [ref=e114]:
+          - img "Pizza Gorgonzola e Noci" [ref=e116]
+          - generic [ref=e118]:
+            - paragraph [ref=e119]: Dulce y atrevida
+            - heading "Gorgonzola e Noci" [level=3] [ref=e120]
+            - paragraph [ref=e121]: Fior di latte, gorgonzola DOP, nueces tostadas, miel de azahar y romero fresco.
+            - generic [ref=e122]:
+              - generic [ref=e123]: 13,50€
+              - generic [ref=e124]: Pedir →
+        - article [ref=e125]:
+          - img "Pizza Bianca Tartufata" [ref=e127]
+          - generic [ref=e129]: Premium
+          - generic [ref=e130]:
+            - paragraph [ref=e131]: Solo para entendidos
+            - heading "Bianca Tartufata" [level=3] [ref=e132]
+            - paragraph [ref=e133]: Base bianca, mozzarella di bufala, crema de trufa negra, parmigiano 24 meses, rúcula salvaje.
+            - generic [ref=e134]:
+              - generic [ref=e135]: 16,90€
+              - generic [ref=e136]: Pedir →
+        - article [ref=e137]:
+          - img "Pizza Primavera" [ref=e139]
+          - generic [ref=e141]: Vegana
+          - generic [ref=e142]:
+            - paragraph [ref=e143]: Verde, fresca, viva
+            - heading "Primavera" [level=3] [ref=e144]
+            - paragraph [ref=e145]: Tomate, mozzarella, calabacín a la plancha, pesto genovés, tomate cherry y albahaca.
+            - generic [ref=e146]:
+              - generic [ref=e147]: 12,90€
+              - generic [ref=e148]: Pedir →
+        - article [ref=e149]:
+          - img "Pizza Margherita Verace" [ref=e151]
+          - generic [ref=e153]:
+            - paragraph [ref=e154]: La eterna
+            - heading "Margherita Verace" [level=3] [ref=e155]
+            - paragraph [ref=e156]: Tomate San Marzano, mozzarella fior di latte, albahaca fresca y aceite de oliva virgen extra.
+            - generic [ref=e157]:
+              - generic [ref=e158]: 10,90€
+              - generic [ref=e159]: Pedir →
+      - link "Ver la carta completa" [ref=e161] [cursor=pointer]:
+        - /url: "#carta"
+        - text: Ver la carta completa
+        - img [ref=e162]
+    - generic [ref=e164]:
+      - generic [ref=e165]:
+        - paragraph [ref=e166]: L'arte dell'impasto
+        - heading "72 horas de paciencia." [level=2] [ref=e167]:
+          - text: 72 horas
+          - text: de paciencia.
+        - paragraph [ref=e168]: Lo que distingue a una pizza napolitana de cualquier otra cosa redonda con queso es el tiempo. Aquí no se acorta jamás.
+      - generic [ref=e169]:
+        - generic [ref=e171]:
+          - img "Pizzaiolo amasando con técnica napolitana" [ref=e172]
+          - generic [ref=e174]:
+            - paragraph [ref=e175]: Mario · Maestro pizzaiolo
+            - paragraph [ref=e176]: "\"L'impasto non si tradisce mai.\""
+        - generic [ref=e177]:
+          - generic [ref=e178]:
+            - generic [ref=e179]: 00h
+            - generic [ref=e180]:
+              - heading "Harina Caputo \"00\"" [level=3] [ref=e181]
+              - paragraph [ref=e182]: Mezclamos harina italiana con agua fría. Sal de Trapani al final. Sin atajos, sin levadura industrial.
+          - generic [ref=e183]:
+            - generic [ref=e184]: 24h
+            - generic [ref=e185]:
+              - heading "El primer reposo" [level=3] [ref=e186]
+              - paragraph [ref=e187]: La masa descansa en frío. El gluten se relaja. Empieza a formarse el carácter.
+          - generic [ref=e188]:
+            - generic [ref=e189]: 48h
+            - generic [ref=e190]:
+              - heading "Fermentación profunda" [level=3] [ref=e191]
+              - paragraph [ref=e192]: Los azúcares se transforman. La masa cobra vida, se vuelve digestiva, aromática.
+          - generic [ref=e193]:
+            - generic [ref=e194]: 72h
+            - generic [ref=e195]:
+              - heading "Boleado y horno" [level=3] [ref=e196]
+              - paragraph [ref=e197]: Bolas individuales. 485°C en el horno de leña durante 90 segundos. Cornicione hinchado, alveolado perfecto.
+    - generic [ref=e199]:
+      - generic [ref=e200]:
+        - generic [ref=e201]:
+          - paragraph [ref=e202]: Voci del quartiere
+          - heading "La gente del barrio lo dice mejor que nosotros." [level=2] [ref=e203]
+        - generic [ref=e204]:
+          - generic [ref=e205]:
+            - generic [ref=e206]: Google
+            - generic [ref=e207]:
+              - paragraph [ref=e208]: "4.7"
+              - generic [ref=e209]:
+                - img [ref=e210]
+                - img [ref=e212]
+                - img [ref=e214]
+                - img [ref=e216]
+                - img [ref=e218]
+          - generic [ref=e220]:
+            - generic [ref=e221]: Reseñas
+            - generic [ref=e222]:
+              - paragraph [ref=e223]: "4865"
+              - paragraph [ref=e224]: y subiendo cada semana
+      - generic [ref=e225]:
+        - article [ref=e226]:
+          - generic [ref=e227]:
+            - img [ref=e228]
+            - img [ref=e230]
+            - img [ref=e232]
+            - img [ref=e234]
+            - img [ref=e236]
+          - paragraph [ref=e238]: "\"La mejor pizza napolitana de Madrid sin discusión. La masa es ligera, esponjosa, con ese borde alveolado que solo se consigue con fermentaciones largas. Volveré una y mil veces.\""
+          - generic [ref=e239]:
+            - paragraph [ref=e240]: María L.
+            - paragraph [ref=e241]: Hace 2 semanas
+        - article [ref=e242]:
+          - generic [ref=e243]:
+            - img [ref=e244]
+            - img [ref=e246]
+            - img [ref=e248]
+            - img [ref=e250]
+            - img [ref=e252]
+          - paragraph [ref=e254]: "\"Local pequeño, lleno y vivo, justo como una trattoria de Nápoles. La gorgonzola con nueces y miel es una bofetada de placer.\""
+          - generic [ref=e255]:
+            - paragraph [ref=e256]: Antonio R.
+            - paragraph [ref=e257]: Hace 1 mes
+        - article [ref=e258]:
+          - generic [ref=e259]:
+            - img [ref=e260]
+            - img [ref=e262]
+            - img [ref=e264]
+            - img [ref=e266]
+            - img [ref=e268]
+          - paragraph [ref=e270]: "\"Soy celíaca y tienen opciones de verdad, no sustituciones tristes. El tiramisú casero es de los mejores que he comido nunca.\""
+          - generic [ref=e271]:
+            - paragraph [ref=e272]: Lucía P.
+            - paragraph [ref=e273]: Hace 3 semanas
+        - article [ref=e274]:
+          - generic [ref=e275]:
+            - img [ref=e276]
+            - img [ref=e278]
+            - img [ref=e280]
+            - img [ref=e282]
+            - img [ref=e284]
+          - paragraph [ref=e286]: "\"Sono napoletano e qui mi sento a casa. Mario y su familia tratan la masa como mi nonna en Forcella. Auténtico.\""
+          - generic [ref=e287]:
+            - paragraph [ref=e288]: Carlo G.
+            - paragraph [ref=e289]: Hace 2 meses
+      - link "Lee las 4865 reseñas en Google" [ref=e291] [cursor=pointer]:
+        - /url: https://www.google.com/maps/place/Pizzer%C3%ADa+Piccola+Napoli+%7C+Cuatro+Caminos
+    - generic [ref=e293]:
+      - generic [ref=e294]:
+        - paragraph [ref=e295]: Il menù
+        - heading "La carta en italiano y español" [level=2] [ref=e296]
+        - paragraph [ref=e297]:
+          - text: Selección de los favoritos. Hay también opciones
+          - strong [ref=e298]: veganas
+          - text: "y"
+          - strong [ref=e299]: celíacas
+          - text: . Pregunta a tu camarero.
+      - tablist [ref=e300]:
+        - tab "Pizzas Rosse" [selected] [ref=e301] [cursor=pointer]
+        - tab "Pizzas Bianche" [ref=e302] [cursor=pointer]
+        - tab "Pasta" [ref=e303] [cursor=pointer]
+        - tab "Dolci" [ref=e304] [cursor=pointer]
+      - tabpanel [ref=e306]:
+        - paragraph [ref=e307]: Tomate San Marzano
+        - generic [ref=e308]:
+          - generic [ref=e309]:
+            - generic [ref=e310]:
+              - heading "Margherita Verace" [level=4] [ref=e311]
+              - paragraph [ref=e312]: Tomate San Marzano, fior di latte, albahaca, AOVE
+            - generic [ref=e313]: 10,90€
+          - generic [ref=e314]:
+            - generic [ref=e315]:
+              - heading "Piccola Napoli" [level=4] [ref=e316]
+              - paragraph [ref=e317]: Tomate, fior di latte, salami napolitano, friarielli, pecorino
+            - generic [ref=e318]: 14,90€
+          - generic [ref=e319]:
+            - generic [ref=e320]:
+              - heading "Diavola" [level=4] [ref=e321]
+              - paragraph [ref=e322]: Tomate, mozzarella, salami picante, guindilla calabresa
+            - generic [ref=e323]: 12,90€
+          - generic [ref=e324]:
+            - generic [ref=e325]:
+              - heading "Capricciosa" [level=4] [ref=e326]
+              - paragraph [ref=e327]: Tomate, mozzarella, jamón cocido, champiñón, alcachofa, aceitunas
+            - generic [ref=e328]: 13,50€
+          - generic [ref=e329]:
+            - generic [ref=e330]:
+              - heading "Bufala D.O.P." [level=4] [ref=e331]
+              - paragraph [ref=e332]: Tomate San Marzano, mozzarella di bufala campana D.O.P., albahaca
+            - generic [ref=e333]: 13,90€
+    - generic [ref=e336]:
+      - generic [ref=e337]:
+        - paragraph [ref=e338]: Trovaci
+        - heading "Tres locales. Una misma masa." [level=2] [ref=e339]:
+          - text: Tres locales.
+          - text: Una misma masa.
+        - generic [ref=e340]:
+          - button "Cuatro Caminos Principal Calle de Palencia, 29 · 28020 Madrid" [pressed] [ref=e341] [cursor=pointer]:
+            - generic [ref=e342]:
+              - heading "Cuatro Caminos" [level=3] [ref=e343]
+              - generic [ref=e344]: Principal
+            - paragraph [ref=e345]: Calle de Palencia, 29 · 28020 Madrid
+          - button "Ríos Rosas Calle Cristóbal Bordiu, 5 · 28003 Madrid" [ref=e346] [cursor=pointer]:
+            - heading "Ríos Rosas" [level=3] [ref=e348]
+            - paragraph [ref=e349]: Calle Cristóbal Bordiu, 5 · 28003 Madrid
+          - button "López de Hoyos Calle López de Hoyos, 202 · 28002 Madrid" [ref=e350] [cursor=pointer]:
+            - heading "López de Hoyos" [level=3] [ref=e352]
+            - paragraph [ref=e353]: Calle López de Hoyos, 202 · 28002 Madrid
+        - generic [ref=e354]:
+          - link "Reservar mesa" [ref=e355] [cursor=pointer]:
+            - /url: https://reservaspiccola.carrd.co/
+            - text: Reservar mesa
+            - img [ref=e356]
+          - link "+34 911 437 121" [ref=e358] [cursor=pointer]:
+            - /url: tel:+34911437121
+            - img [ref=e359]
+            - text: +34 911 437 121
+      - generic [ref=e363]:
+        - paragraph [ref=e364]: Horario — Cuatro Caminos
+        - generic [ref=e365]:
+          - generic [ref=e366]:
+            - generic [ref=e367]: Lun
+            - generic [ref=e368]: 13:00 – 16:15 · 20:00 – 23:15
+          - generic [ref=e369]:
+            - generic [ref=e370]: Mar
+            - generic [ref=e371]: 13:00 – 16:15 · 20:00 – 23:15
+          - generic [ref=e372]:
+            - generic [ref=e373]: Mié
+            - generic [ref=e374]: 13:00 – 16:15 · 20:00 – 23:15
+          - generic [ref=e375]:
+            - generic [ref=e376]: Jue
+            - generic [ref=e377]: 13:00 – 16:15 · 20:00 – 23:15
+          - generic [ref=e378]:
+            - generic [ref=e379]: Vie
+            - generic [ref=e380]: 13:00 – 16:15 · 20:00 – 23:30
+          - generic [ref=e381]:
+            - generic [ref=e382]: Sáb
+            - generic [ref=e383]: 13:00 – 16:15 · 20:00 – 23:30
+          - generic [ref=e384]:
+            - generic [ref=e385]: Dom
+            - generic [ref=e386]: Cerrado
+  - contentinfo [ref=e387]:
+    - generic [ref=e389]:
+      - generic [ref=e390]:
+        - paragraph [ref=e391]: Ti aspettiamo.
+        - paragraph [ref=e392]: Con un horno encendido y la mesa puesta.
+      - generic [ref=e393]:
+        - generic [ref=e394]:
+          - generic [ref=e395]:
+            - img [ref=e396]
+            - generic [ref=e400]: Piccola Napoli
+          - paragraph [ref=e401]: Pizza · Casa · Famiglia
+          - paragraph [ref=e402]: Desde 2010 servimos auténtica pizza napolitana en Madrid. Familia, tradición y horno de leña.
+        - generic [ref=e403]:
+          - paragraph [ref=e404]: Visita
+          - list [ref=e405]:
+            - listitem [ref=e406]:
+              - link "Pizzas estrella" [ref=e407] [cursor=pointer]:
+                - /url: "#pizzas"
+            - listitem [ref=e408]:
+              - link "La masa" [ref=e409] [cursor=pointer]:
+                - /url: "#masa"
+            - listitem [ref=e410]:
+              - link "Carta completa" [ref=e411] [cursor=pointer]:
+                - /url: "#carta"
+            - listitem [ref=e412]:
+              - link "Nuestros locales" [ref=e413] [cursor=pointer]:
+                - /url: "#donde"
+            - listitem [ref=e414]:
+              - link "Reservar mesa →" [ref=e415] [cursor=pointer]:
+                - /url: https://reservaspiccola.carrd.co/
+        - generic [ref=e416]:
+          - paragraph [ref=e417]: A casa
+          - list [ref=e418]:
+            - listitem [ref=e419]:
+              - link "Uber Eats" [ref=e420] [cursor=pointer]:
+                - /url: https://www.ubereats.com/es/store/piccola-napoli
+            - listitem [ref=e421]:
+              - link "Glovo" [ref=e422] [cursor=pointer]:
+                - /url: https://glovoapp.com/es/es/madrid/piccola-napoli-mad/
+        - generic [ref=e423]:
+          - paragraph [ref=e424]: Contacto
+          - list [ref=e425]:
+            - listitem [ref=e426]:
+              - link "+34 911 437 121" [ref=e427] [cursor=pointer]:
+                - /url: tel:+34911437121
+            - listitem [ref=e428]:
+              - link "hola@piccolanapoli.es" [ref=e429] [cursor=pointer]:
+                - /url: mailto:hola@piccolanapoli.es
+          - paragraph [ref=e430]: Síguenos
+          - generic [ref=e431]:
+            - link "Instagram" [ref=e432] [cursor=pointer]:
+              - /url: https://www.instagram.com/piccola_napoli
+              - img [ref=e433]
+            - link "TikTok" [ref=e436] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@piccola_napoli
+              - img [ref=e437]
+            - link "Facebook" [ref=e439] [cursor=pointer]:
+              - /url: https://www.facebook.com/people/piccola_napoli/100075709877276/
+              - img [ref=e440]
+      - generic [ref=e442]:
+        - paragraph [ref=e443]: Fatto con amore in Madrid
+        - paragraph [ref=e444]: © 2026 Piccola Napoli S.L. · Todos los derechos reservados
+        - generic [ref=e445]:
+          - link "Aviso legal" [ref=e446] [cursor=pointer]:
+            - /url: /aviso-legal
+          - link "Privacidad" [ref=e447] [cursor=pointer]:
+            - /url: /privacidad
+          - link "Cookies" [ref=e448] [cursor=pointer]:
+            - /url: /cookies
+  - generic [ref=e451]:
+    - button "Menu" [ref=e452]:
+      - img [ref=e454]
+      - generic: Menu
+    - button "Inspect" [ref=e458]:
+      - img [ref=e460]
+      - generic: Inspect
+    - button "Audit" [ref=e462]:
+      - img [ref=e464]
+      - generic: Audit
+    - button "Settings" [ref=e467]:
+      - img [ref=e469]
+      - generic: Settings
