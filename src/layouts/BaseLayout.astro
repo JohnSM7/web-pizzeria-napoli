@@ -161,7 +161,6 @@ const jsonLd = {
         // ===== 2) MOOD CROMÁTICO + PARALLAX + ROTATE — UN SOLO scroll handler =====
         var moodSections = Array.prototype.slice.call(document.querySelectorAll('[data-section-mood]'));
         var parallaxEls = Array.prototype.slice.call(document.querySelectorAll('.scroll-parallax-slow'));
-        var rotateEls = Array.prototype.slice.call(document.querySelectorAll('.scroll-rotate'));
         var lastMood = null;
         var ticking = false;
         var lastScroll = 0;
@@ -199,8 +198,8 @@ const jsonLd = {
             }
           }
 
+          // PARALLAX — sí respeta reduce-motion (puede causar mareo)
           if (!reduceMotion) {
-            // PARALLAX
             for (var p = 0; p < parallaxEls.length; p++) {
               var el = parallaxEls[p];
               var r = el.getBoundingClientRect();
@@ -208,10 +207,6 @@ const jsonLd = {
               var progress = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
               var shift = Math.max(-1, Math.min(1, progress)) * 8;
               el.style.transform = 'translate3d(0,' + shift + '%,0)';
-            }
-            // ROTATE
-            for (var q = 0; q < rotateEls.length; q++) {
-              rotateEls[q].style.transform = 'rotate(' + ((lastScroll / 8) % 360) + 'deg)';
             }
           }
 

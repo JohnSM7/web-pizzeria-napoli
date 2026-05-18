@@ -83,10 +83,23 @@
     filter: none;
   }
 
-  /* Parallax y rotate vía JS (cross-browser) */
-  .scroll-parallax-slow,
+  /* Parallax vía JS (cross-browser, respeta reduce-motion) */
+  .scroll-parallax-slow {
+    will-change: transform;
+  }
+
+  /* Rotación de pizza: animación CSS pura, infinita, decorativa.
+     Visible siempre — incluso con reduce-motion (ralentizada). */
   .scroll-rotate {
     will-change: transform;
+    animation: pizza-spin 80s linear infinite;
+  }
+  @keyframes pizza-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-rotate { animation-duration: 240s; }
   }
 }
 

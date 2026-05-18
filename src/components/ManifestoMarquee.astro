@@ -82,7 +82,9 @@ const loop = [...palabras, ...palabras];
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
   }
+  /* Marquee decorativo: animación sutil que siempre se muestra.
+     Si prefers-reduced-motion está activo, ralentizamos pero no paramos. */
   @media (prefers-reduced-motion: reduce) {
-    .marquee-track-inf { animation: none; }
+    .marquee-track-inf { animation-duration: 120s; }
   }
 </style>
