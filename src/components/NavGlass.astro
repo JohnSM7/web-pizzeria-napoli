@@ -2,33 +2,39 @@
 import { negocio } from '~/data/negocio';
 ---
 
-<header class="fixed top-4 inset-x-0 z-50 px-4 sm:px-6">
-  <nav class="glass-nav max-w-7xl mx-auto rounded-full px-4 sm:px-6 py-3 flex items-center justify-between">
-    <a href="#top" class="flex items-center gap-2 group" aria-label="Piccola Napoli">
-      <span class="relative w-9 h-9 grid place-items-center rounded-full bg-vesubio-500/10">
-        <svg viewBox="0 0 64 48" class="w-7 h-7" fill="none" aria-hidden="true">
+<header class="fixed top-3 sm:top-4 inset-x-0 z-50 px-3 sm:px-6">
+  <nav class="glass-nav max-w-7xl mx-auto rounded-full pl-3 pr-2 sm:pl-4 sm:pr-3 py-2.5 sm:py-3 flex items-center justify-between gap-2">
+    <a href="#top" class="flex items-center gap-2 group shrink-0" aria-label="Piccola Napoli">
+      <span class="relative w-8 h-8 sm:w-9 sm:h-9 grid place-items-center rounded-full bg-vesubio-500/10">
+        <svg viewBox="0 0 64 48" class="w-6 h-6 sm:w-7 sm:h-7" fill="none" aria-hidden="true">
           <path d="M4 42 L18 18 L26 30 L36 14 L52 30 L60 42 Z" fill="#0E7A3D"/>
           <rect x="34.5" y="8" width="1.5" height="9" fill="#1A1410"/>
           <path d="M36 8 L43 11 L36 14 Z" fill="#C8332A"/>
         </svg>
       </span>
-      <span class="accent-display text-lg sm:text-xl text-vesubio-500">Piccola Napoli</span>
+      <span class="accent-display text-base sm:text-xl text-vesubio-500">
+        <span class="hidden xs:inline sm:inline">Piccola Napoli</span>
+        <span class="xs:hidden sm:hidden">Piccola</span>
+      </span>
     </a>
 
-    <ul class="hidden md:flex items-center gap-7 text-sm">
-      <li><a href="#manifesto" class="hover:text-sanmarzano-500 transition">Manifesto</a></li>
+    <ul class="hidden lg:flex items-center gap-7 text-sm">
+      <li><a href="#manifesto" class="hover:text-sanmarzano-500 transition whitespace-nowrap">Manifesto</a></li>
       <li><a href="#pizzas" class="hover:text-sanmarzano-500 transition">Pizzas</a></li>
-      <li><a href="#masa" class="hover:text-sanmarzano-500 transition">La Masa</a></li>
+      <li><a href="#masa" class="hover:text-sanmarzano-500 transition whitespace-nowrap">La Masa</a></li>
       <li><a href="#carta" class="hover:text-sanmarzano-500 transition">Carta</a></li>
       <li><a href="#donde" class="hover:text-sanmarzano-500 transition">Locales</a></li>
     </ul>
 
-    <div class="flex items-center gap-2">
-      <a href={negocio.telefonoLink} class="hidden sm:inline-flex btn-ghost text-xs py-2 px-4" aria-label="Llamar">
+    <div class="flex items-center gap-2 shrink-0">
+      <a href={negocio.telefonoLink} class="hidden lg:inline-flex btn-ghost text-xs py-2 px-4 whitespace-nowrap" aria-label="Llamar">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         Llamar
       </a>
-      <a href={negocio.reservas} target="_blank" rel="noopener" class="btn-magnetic text-sm py-2 px-4">
+      <a href={negocio.telefonoLink} class="lg:hidden grid place-items-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-current/30" aria-label="Llamar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <a href={negocio.reservas} target="_blank" rel="noopener" class="btn-magnetic text-xs sm:text-sm py-2 px-3 sm:px-4 whitespace-nowrap">
         Reservar
       </a>
     </div>

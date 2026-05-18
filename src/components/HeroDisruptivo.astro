@@ -5,14 +5,11 @@ import { negocio } from '~/data/negocio';
 <section
   id="top"
   data-section-mood=""
-  class="relative min-h-[100svh] overflow-hidden flex flex-col justify-end pt-32 pb-12 px-4 sm:px-8"
+  class="hero-section relative overflow-hidden flex flex-col"
 >
-  <!-- Capa de pizza GRANDE en el panel derecho, ENCIMA de la zona de CTAs -->
+  <!-- Capa de pizza decorativa -->
   <div class="absolute inset-0 -z-10 pointer-events-none">
-    <div
-      class="absolute right-[-12%] top-1/2 -translate-y-1/2 w-[80vw] max-w-[820px] aspect-square rounded-full overflow-hidden scroll-rotate"
-      style="animation-duration: 80s;"
-    >
+    <div class="pizza-deco scroll-rotate">
       <img
         src="/images/hero-pizza.jpg"
         alt="Pizza napolitana recién salida del horno"
@@ -21,51 +18,53 @@ import { negocio } from '~/data/negocio';
       />
     </div>
     <!-- Halos de calor -->
-    <div class="absolute -left-40 -bottom-40 w-[600px] h-[600px] rounded-full bg-cornicione/35 blur-[120px]"></div>
-    <div class="absolute right-[15%] top-[5%] w-[420px] h-[420px] rounded-full bg-sanmarzano-500/15 blur-[100px]"></div>
+    <div class="absolute -left-32 -bottom-40 w-[420px] h-[420px] rounded-full bg-cornicione/30 blur-[100px]"></div>
+    <div class="absolute right-[10%] top-[5%] w-[280px] h-[280px] rounded-full bg-sanmarzano-500/15 blur-[80px]"></div>
   </div>
 
-  <div class="relative max-w-7xl mx-auto w-full">
+  <div class="relative max-w-7xl mx-auto w-full px-4 sm:px-8 flex-1 flex flex-col justify-end pt-28 sm:pt-32 pb-10 md:pb-12">
     <!-- Insignias -->
-    <div class="flex flex-wrap items-center gap-3 mb-8 scroll-fade">
+    <div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-6 sm:mb-8 scroll-fade">
       <span class="badge-soft badge-glass">
         <span class="w-2 h-2 rounded-full bg-vesubio-500 animate-pulse"></span>
-        Solete Guía Repsol 2024
+        <span class="hidden sm:inline">Solete Guía Repsol 2024</span>
+        <span class="sm:hidden">Solete 2024</span>
       </span>
       <span class="badge-soft badge-glass">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         <strong class="font-semibold">{negocio.rating}</strong>
-        <span class="opacity-70">· {negocio.reseñas.toLocaleString('es-ES')} reseñas Google</span>
+        <span class="opacity-70 hidden sm:inline">· {negocio.reseñas.toLocaleString('es-ES')} reseñas</span>
+        <span class="opacity-70 sm:hidden">· {negocio.reseñas.toLocaleString('es-ES')}</span>
       </span>
       <span class="badge-soft badge-glass">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         Desde {negocio.desde}
       </span>
     </div>
 
     <!-- Eyebrow -->
-    <p class="font-script text-2xl sm:text-3xl text-sanmarzano-500 mb-2 scroll-fade">
+    <p class="font-script text-2xl sm:text-3xl text-sanmarzano-500 mb-1 scroll-fade">
       Fatto a mano in Madrid
     </p>
 
-    <!-- Tipografía gigante -->
-    <h1 class="liquid-display text-[clamp(3.5rem,15vw,15rem)] mb-2 scroll-reveal relative">
+    <!-- Tipografía gigante con escala más conservadora en móvil -->
+    <h1 class="liquid-display text-[clamp(3.2rem,15vw,15rem)] mb-2 scroll-reveal">
       <span class="block">Piccola</span>
-      <span class="block liquid-display-italic text-vesubio-500 -mt-[0.1em]">Napoli</span>
+      <span class="block liquid-display-italic text-vesubio-500 -mt-[0.08em]">Napoli</span>
     </h1>
 
     <!-- Bloque inferior con descripción + CTAs -->
-    <div class="mt-10 flex flex-col md:flex-row md:items-end justify-between gap-8">
-      <p class="max-w-md text-lg leading-relaxed text-carbon-900/85 scroll-reveal">
+    <div class="mt-6 md:mt-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <p class="max-w-md text-base sm:text-lg leading-relaxed text-carbon-900/85 scroll-reveal">
         <span class="hero-text-glass">
           Auténtica pizza napolitana. Masa de <strong>72 horas</strong>, harinas italianas,
           tomate San Marzano DOP y mozzarella fior di latte.
         </span>
-        <span class="font-script text-2xl text-sanmarzano-500 block mt-2">Pizza · Casa · Famiglia.</span>
+        <span class="font-script text-xl sm:text-2xl text-sanmarzano-500 block mt-2">Pizza · Casa · Famiglia.</span>
       </p>
 
-      <!-- Cluster CTA con glass fuerte para legibilidad sobre la pizza -->
-      <div class="flex flex-wrap items-center gap-3 scroll-reveal cta-cluster">
+      <!-- Cluster CTA -->
+      <div class="cta-cluster scroll-reveal">
         <a href={negocio.reservas} target="_blank" rel="noopener" class="btn-magnetic">
           <span class="btn-magnetic-text">
             Reserva tu mesa
@@ -79,7 +78,7 @@ import { negocio } from '~/data/negocio';
     </div>
 
     <!-- Indicador scroll -->
-    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 opacity-60">
+    <div class="hidden md:flex flex-col items-center gap-2 opacity-60 mt-10 self-center">
       <span class="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
       <span class="w-px h-12 bg-current animate-pulse"></span>
     </div>
@@ -87,7 +86,36 @@ import { negocio } from '~/data/negocio';
 </section>
 
 <style>
-  /* Insignias con glass más opaco para leer sobre la pizza */
+  .hero-section {
+    min-height: 100svh;
+  }
+
+  /* Pizza decorativa — posicionamiento responsive */
+  .pizza-deco {
+    position: absolute;
+    border-radius: 9999px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    /* Desktop (>= md): grande a la derecha, encima de los CTAs */
+    right: -12%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80vw;
+    max-width: 820px;
+  }
+
+  /* Móvil: pizza ARRIBA, más pequeña, sin solapar texto */
+  @media (max-width: 767px) {
+    .pizza-deco {
+      right: -30%;
+      top: -15%;
+      transform: none;
+      width: 75vw;
+      max-width: 380px;
+    }
+  }
+
+  /* Insignias glass-strong */
   .badge-glass {
     background: color-mix(in srgb, #FBF6EC 80%, transparent) !important;
     backdrop-filter: blur(10px) saturate(140%);
@@ -95,7 +123,7 @@ import { negocio } from '~/data/negocio';
     border: 1px solid color-mix(in srgb, #1A1410 8%, transparent) !important;
   }
 
-  /* Sombra glass sutil detrás del párrafo de descripción para legibilidad */
+  /* Glass sobre la descripción */
   .hero-text-glass {
     background: linear-gradient(120deg, color-mix(in srgb, #FBF6EC 92%, transparent), color-mix(in srgb, #FBF6EC 75%, transparent));
     backdrop-filter: blur(6px);
@@ -106,21 +134,45 @@ import { negocio } from '~/data/negocio';
     border-radius: 4px;
   }
 
-  /* Container CTA — fondo glass para cuando los botones caen sobre la pizza */
+  /* Cluster CTA — glass cremoso */
   .cta-cluster {
-    position: relative;
-    padding: 0.75rem;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem;
     border-radius: 9999px;
-    background: color-mix(in srgb, #FBF6EC 55%, transparent);
+    background: color-mix(in srgb, #FBF6EC 60%, transparent);
     backdrop-filter: blur(16px) saturate(160%);
     -webkit-backdrop-filter: blur(16px) saturate(160%);
     box-shadow: 0 12px 40px -16px rgba(26, 20, 16, 0.18);
   }
 
+  /* En móvil ocupar todo el ancho disponible para los CTAs */
   @media (max-width: 767px) {
     .cta-cluster {
       width: 100%;
-      justify-content: flex-start;
+      justify-content: stretch;
     }
+    .cta-cluster .btn-magnetic,
+    .cta-cluster .btn-ghost-solid {
+      flex: 1 1 auto;
+      justify-content: center;
+      text-align: center;
+      padding-left: 1.2rem;
+      padding-right: 1.2rem;
+    }
+  }
+
+  /* En tablet evitar que los CTAs queden comprimidos */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .cta-cluster .btn-magnetic,
+    .cta-cluster .btn-ghost-solid {
+      white-space: nowrap;
+    }
+  }
+
+  .cta-cluster .btn-magnetic .btn-magnetic-text {
+    white-space: nowrap;
   }
 </style>
