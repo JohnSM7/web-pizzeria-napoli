@@ -7,3 +7,10 @@ dist/
 *.log
 .vscode/
 .idea/
+.claude/
+.playwright-mcp/
+*.jpeg
+*.png
+!public/**/*.png
+!public/**/*.jpg
+!public/**/*.jpeg
