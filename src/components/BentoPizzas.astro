@@ -1,0 +1,72 @@
+---
+import { pizzasEstrella } from '~/data/negocio';
+
+// Definir el layout Bento explícito
+const layout: Record<string, string> = {
+  'piccola-napoli': 'md:col-span-7 md:row-span-2 min-h-[480px] md:min-h-[640px]',
+  'gorgonzola-noci': 'md:col-span-5 min-h-[300px]',
+  'bianca-tartufata': 'md:col-span-5 min-h-[300px]',
+  'primavera': 'md:col-span-4 min-h-[280px]',
+  'margherita': 'md:col-span-8 min-h-[280px]',
+};
+---
+
+<section id="pizzas" data-section-mood="" class="relative py-28 px-4 sm:px-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Encabezado -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div>
+        <p class="font-script text-3xl text-sanmarzano-500 mb-2 scroll-fade">Le nostre stelle</p>
+        <h2 class="liquid-display text-[clamp(2.5rem,7vw,6rem)] scroll-reveal">
+          Las que <span class="liquid-display-italic text-vesubio-500">no te puedes</span> perder
+        </h2>
+      </div>
+      <p class="max-w-sm text-base opacity-70 scroll-fade">
+        Cinco pizzas que resumen lo que hacemos. Hay otras 20 esperándote en la carta completa.
+      </p>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-min">
+      {pizzasEstrella.map((p, i) => (
+        <article class={`bento-card scroll-scale group ${layout[p.id] || 'md:col-span-6 min-h-[300px]'}`} style={`animation-delay: ${i * 60}ms`}>
+          <div class="absolute inset-0">
+            <img
+              src={p.imagen}
+              alt={`Pizza ${p.nombre}`}
+              class="bento-img w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-carbon-900/85 via-carbon-900/20 to-transparent"></div>
+          </div>
+
+          {p.badge && (
+            <span class="absolute top-4 right-4 z-10 badge-soft bg-mozzarella/95 text-carbon-900 text-[11px]">
+              {p.badge}
+            </span>
+          )}
+
+          <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end text-mozzarella z-10">
+            <p class="font-script text-xl text-cornicione-500 mb-1">{p.italiano}</p>
+            <h3 class="liquid-display text-3xl sm:text-5xl mb-2 leading-none">{p.nombre}</h3>
+            <p class="text-sm sm:text-base opacity-90 max-w-md mb-4 line-clamp-2">{p.descripcion}</p>
+            <div class="flex items-center justify-between">
+              <span class="liquid-display text-3xl">{p.precio}<span class="text-base opacity-70 ml-1">€</span></span>
+              <span class="text-xs uppercase tracking-[0.2em] opacity-70 group-hover:opacity-100 transition">
+                Pedir →
+              </span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12 scroll-fade">
+      <a href="#carta" class="btn-ghost">
+        Ver la carta completa
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>

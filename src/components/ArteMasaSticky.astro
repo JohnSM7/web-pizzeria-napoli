@@ -1,0 +1,56 @@
+---
+const fases = [
+  { h: '00h', t: 'Harina Caputo "00"', d: 'Mezclamos harina italiana con agua fría. Sal de Trapani al final. Sin atajos, sin levadura industrial.' },
+  { h: '24h', t: 'El primer reposo', d: 'La masa descansa en frío. El gluten se relaja. Empieza a formarse el carácter.' },
+  { h: '48h', t: 'Fermentación profunda', d: 'Los azúcares se transforman. La masa cobra vida, se vuelve digestiva, aromática.' },
+  { h: '72h', t: 'Boleado y horno', d: 'Bolas individuales. 485°C en el horno de leña durante 90 segundos. Cornicione hinchado, alveolado perfecto.' },
+];
+---
+
+<section id="masa" data-section-mood="horno" class="relative py-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 mb-16">
+    <p class="font-script text-3xl text-cornicione-500 mb-3 scroll-fade">L'arte dell'impasto</p>
+    <h2 class="liquid-display text-[clamp(3rem,8vw,7rem)] scroll-reveal">
+      72 horas <br/>
+      <span class="liquid-display-italic text-cornicione-500">de paciencia.</span>
+    </h2>
+    <p class="mt-6 max-w-xl text-lg opacity-80 scroll-fade">
+      Lo que distingue a una pizza napolitana de cualquier otra cosa redonda con queso es el tiempo. Aquí no se acorta jamás.
+    </p>
+  </div>
+
+  <!-- Sticky scroll storytelling -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 grid md:grid-cols-2 gap-12 items-start">
+    <!-- Imagen sticky -->
+    <div class="md:sticky md:top-32 self-start">
+      <div class="relative aspect-[4/5] rounded-[40px] overflow-hidden">
+        <img
+          src="/images/masa-amasando.jpg"
+          alt="Pizzaiolo amasando con técnica napolitana"
+          class="absolute inset-0 w-full h-full object-cover scroll-parallax-slow"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-carbon-900/80 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <p class="font-script text-cornicione-500 text-2xl">Mario · Maestro pizzaiolo</p>
+          <p class="text-sm opacity-80">"L'impasto non si tradisce mai."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fases -->
+    <div class="space-y-12">
+      {fases.map((f, i) => (
+        <div class="scroll-reveal flex gap-6 items-start" style={`animation-delay: ${i * 80}ms`}>
+          <span class="liquid-display text-6xl text-cornicione-500 shrink-0 leading-none w-28">
+            {f.h}
+          </span>
+          <div class="border-l border-current/20 pl-6 pt-2">
+            <h3 class="accent-display text-2xl mb-2">{f.t}</h3>
+            <p class="opacity-75 leading-relaxed">{f.d}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

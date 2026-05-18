@@ -1,0 +1,29 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import NavGlass from '~/components/NavGlass.astro';
+import HeroDisruptivo from '~/components/HeroDisruptivo.astro';
+import ManifestoMarquee from '~/components/ManifestoMarquee.astro';
+import BentoPizzas from '~/components/BentoPizzas.astro';
+import ArteMasaSticky from '~/components/ArteMasaSticky.astro';
+import ResenasGoogle from '~/components/ResenasGoogle.astro';
+import CartaInteractiva from '~/components/CartaInteractiva.astro';
+import MapaOSM from '~/components/MapaOSM.astro';
+import FooterAmore from '~/components/FooterAmore.astro';
+---
+
+<BaseLayout
+  title="Piccola Napoli · Auténtica pizza napolitana en Madrid"
+  description="Pizza · Casa · Famiglia. Desde 2010 servimos pizza napolitana con masa de 72 horas, tomate San Marzano DOP y mozzarella italiana. 4,7★ con 4.865 reseñas. Solete Guía Repsol. Reserva en Cuatro Caminos, Ríos Rosas o López de Hoyos."
+>
+  <NavGlass />
+  <main>
+    <HeroDisruptivo />
+    <ManifestoMarquee />
+    <BentoPizzas />
+    <ArteMasaSticky />
+    <ResenasGoogle />
+    <CartaInteractiva />
+    <MapaOSM />
+  </main>
+  <FooterAmore />
+</BaseLayout>

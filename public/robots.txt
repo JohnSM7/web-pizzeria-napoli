@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://piccolanapoli.es/sitemap-index.xml

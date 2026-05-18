@@ -1,0 +1,290 @@
+---
+import { negocio } from '~/data/negocio';
+
+const principal = negocio.locales[0];
+// Tile fallback estático (sin JS) — imagen del mapa centrada en Cuatro Caminos vía staticmap libre
+// Si Leaflet falla, mostramos una composición visual con info clara
+---
+
+<section id="donde" data-section-mood="" class="relative py-32 px-4 sm:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-12 gap-12 items-start">
+      <!-- Texto + selector -->
+      <div class="md:col-span-5 md:sticky md:top-32">
+        <p class="font-script text-3xl text-sanmarzano-500 mb-3 scroll-fade">Trovaci</p>
+        <h2 class="liquid-display text-[clamp(2.5rem,6vw,5rem)] scroll-reveal mb-6">
+          Tres locales. <br/>
+          <span class="liquid-display-italic text-vesubio-500">Una misma masa.</span>
+        </h2>
+
+        <div class="space-y-3 mb-8" id="locales-list">
+          {negocio.locales.map((l, i) => (
+            <div class="local-card-wrap">
+              <button
+                type="button"
+                data-local={l.id}
+                data-lat={l.lat}
+                data-lng={l.lng}
+                class={`local-btn w-full text-left p-5 rounded-2xl border transition ${
+                  i === 0
+                    ? 'bg-carbon-900 text-mozzarella border-carbon-900'
+                    : 'border-carbon-900/15 hover:border-carbon-900/40'
+                }`}
+                aria-pressed={i === 0 ? 'true' : 'false'}
+              >
+                <div class="flex items-baseline justify-between gap-3">
+                  <h3 class="accent-display text-xl">{l.nombre}</h3>
+                  {l.destacado && <span class="badge-soft !py-0.5 !px-2 text-[10px] bg-sanmarzano-500/20 border-sanmarzano-500/40">Principal</span>}
+                </div>
+                <p class="text-sm opacity-80 mt-1">{l.direccion} · {l.cp} {l.ciudad}</p>
+                <!-- Link siempre disponible aunque el mapa no cargue -->
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${l.lat},${l.lng}`}
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-sanmarzano-500 hover:text-sanmarzano-600 transition"
+                  onclick="event.stopPropagation()"
+                >
+                  Cómo llegar
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </a>
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <a href={negocio.reservas} target="_blank" rel="noopener" class="btn-magnetic">
+            <span class="btn-magnetic-text">
+              Reservar mesa
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+          <a href={negocio.telefonoLink} class="btn-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            {negocio.telefono}
+          </a>
+        </div>
+      </div>
+
+      <!-- Mapa + horarios -->
+      <div class="md:col-span-7 space-y-6">
+        <!-- Contenedor del mapa con fallback siempre visible -->
+        <div class="map-container relative w-full aspect-[4/3] md:aspect-[5/4] rounded-[40px] overflow-hidden border border-carbon-900/10 scroll-reveal">
+          <!-- Fallback: visible siempre, oculto sólo si Leaflet inicializa correctamente -->
+          <div id="map-fallback" class="absolute inset-0 z-10 flex flex-col items-center justify-center text-center p-8 bg-mozzarella-200">
+            <svg viewBox="0 0 64 64" width="80" height="80" class="mb-4 opacity-90">
+              <path d="M32 58 C 50 42, 56 32, 56 22 A 24 24 0 0 0 8 22 C 8 32, 14 42, 32 58 Z" fill="#0E7A3D" stroke="#06381D" stroke-width="1.5"/>
+              <path d="M18 26 L26 18 L31 23 L38 14 L46 24" stroke="#FBF6EC" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="32" cy="22" r="2.5" fill="#C8332A"/>
+            </svg>
+            <p class="font-script text-2xl text-sanmarzano-500 mb-2">Tres locales en Madrid</p>
+            <p class="text-sm opacity-70 max-w-xs mb-4">Cuatro Caminos · Ríos Rosas · López de Hoyos</p>
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${principal.lat},${principal.lng}&query_place_id=ChIJ_wpAOh-PQg0R0ZB6B4wG3_U`}
+              target="_blank"
+              rel="noopener"
+              class="btn-ghost text-sm"
+            >
+              Ver en Google Maps
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <!-- Mapa interactivo: se inicializa por encima del fallback si JS y Leaflet cargan -->
+          <div id="map" class="absolute inset-0 z-20" aria-label="Mapa interactivo de los locales"></div>
+        </div>
+
+        <!-- Horarios del local activo -->
+        <div id="horarios-wrap" class="bento-card !bg-mozzarella-200 p-6 sm:p-8 scroll-fade">
+          <p class="font-script text-2xl text-sanmarzano-500 mb-4">
+            Horario — <span id="horarios-local-name">{principal.nombre}</span>
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-7 gap-3 text-sm" id="horarios-grid">
+            {Object.entries(principal.horarios).map(([dia, hora]) => (
+              <div class="flex sm:flex-col gap-1 sm:gap-0.5 justify-between" data-dia={dia}>
+                <span class="font-medium text-xs uppercase tracking-wider opacity-60">{dia.slice(0,3)}</span>
+                <span class={`hora-cell text-xs ${hora === 'Cerrado' ? 'text-sanmarzano-500' : ''}`}>{hora}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { negocio } from '~/data/negocio';
+
+  function buildPopupNode(local: typeof negocio.locales[number]): HTMLElement {
+    const root = document.createElement('div');
+    root.style.cssText = 'padding:8px 4px;min-width:200px;';
+
+    const name = document.createElement('p');
+    name.style.cssText = 'font-family:Caprasimo,serif;font-size:1.2rem;margin:0 0 4px;color:#0E7A3D;';
+    name.textContent = local.nombre;
+    root.appendChild(name);
+
+    const addr = document.createElement('p');
+    addr.style.cssText = 'font-size:0.85rem;margin:0 0 8px;opacity:0.8;';
+    addr.append(local.direccion, document.createElement('br'), `${local.cp} ${local.ciudad}`);
+    root.appendChild(addr);
+
+    const link = document.createElement('a');
+    link.href = `https://www.google.com/maps/dir/?api=1&destination=${local.lat},${local.lng}`;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.style.cssText = 'font-size:0.8rem;color:#C8332A;text-decoration:none;font-weight:600;';
+    link.textContent = 'Cómo llegar →';
+    root.appendChild(link);
+
+    return root;
+  }
+
+  function buildPinNode(): HTMLElement {
+    const wrap = document.createElement('div');
+    wrap.style.cssText = 'position:relative;width:56px;height:64px;transform:translate(-50%,-100%);';
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 64 64');
+    svg.setAttribute('width', '56');
+    svg.setAttribute('height', '64');
+
+    const shadow = document.createElementNS(NS, 'ellipse');
+    shadow.setAttribute('cx', '32'); shadow.setAttribute('cy', '60');
+    shadow.setAttribute('rx', '10'); shadow.setAttribute('ry', '2.5');
+    shadow.setAttribute('fill', 'rgba(0,0,0,0.25)');
+
+    const drop = document.createElementNS(NS, 'path');
+    drop.setAttribute('d', 'M32 58 C 50 42, 56 32, 56 22 A 24 24 0 0 0 8 22 C 8 32, 14 42, 32 58 Z');
+    drop.setAttribute('fill', '#0E7A3D');
+    drop.setAttribute('stroke', '#06381D');
+    drop.setAttribute('stroke-width', '1.5');
+
+    const mountain = document.createElementNS(NS, 'path');
+    mountain.setAttribute('d', 'M18 26 L26 18 L31 23 L38 14 L46 24');
+    mountain.setAttribute('stroke', '#FBF6EC');
+    mountain.setAttribute('stroke-width', '2');
+    mountain.setAttribute('fill', 'none');
+    mountain.setAttribute('stroke-linecap', 'round');
+    mountain.setAttribute('stroke-linejoin', 'round');
+
+    const flag = document.createElementNS(NS, 'circle');
+    flag.setAttribute('cx', '32'); flag.setAttribute('cy', '22');
+    flag.setAttribute('r', '2.5'); flag.setAttribute('fill', '#C8332A');
+
+    svg.append(shadow, drop, mountain, flag);
+    wrap.appendChild(svg);
+    return wrap;
+  }
+
+  function renderHorarios(local: typeof negocio.locales[number]) {
+    const nameEl = document.getElementById('horarios-local-name');
+    const grid = document.getElementById('horarios-grid');
+    if (!nameEl || !grid) return;
+    nameEl.textContent = local.nombre;
+    while (grid.firstChild) grid.removeChild(grid.firstChild);
+    Object.entries(local.horarios).forEach(([dia, hora]) => {
+      const cell = document.createElement('div');
+      cell.className = 'flex sm:flex-col gap-1 sm:gap-0.5 justify-between';
+      cell.dataset.dia = dia;
+      const diaEl = document.createElement('span');
+      diaEl.className = 'font-medium text-xs uppercase tracking-wider opacity-60';
+      diaEl.textContent = dia.slice(0, 3);
+      const horaEl = document.createElement('span');
+      horaEl.className = `hora-cell text-xs ${hora === 'Cerrado' ? 'text-sanmarzano-500' : ''}`;
+      horaEl.textContent = hora;
+      cell.append(diaEl, horaEl);
+      grid.appendChild(cell);
+    });
+  }
+
+  async function initMap() {
+    try {
+      const L = await import('leaflet');
+      const principal = negocio.locales[0];
+      const mapEl = document.getElementById('map');
+      const fallbackEl = document.getElementById('map-fallback');
+      if (!mapEl) return;
+
+      const map = L.map(mapEl, {
+        center: [principal.lat, principal.lng],
+        zoom: 15,
+        scrollWheelZoom: false,
+        zoomControl: true,
+        attributionControl: false,
+      });
+
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+
+      const markers: Record<string, any> = {};
+      negocio.locales.forEach((l) => {
+        const pinIcon = L.divIcon({
+          className: 'pin-vesubio',
+          html: buildPinNode().outerHTML,
+          iconSize: [56, 64],
+          iconAnchor: [28, 64],
+        });
+        const m = L.marker([l.lat, l.lng], { icon: pinIcon }).addTo(map);
+        m.bindPopup(buildPopupNode(l));
+        markers[l.id] = m;
+      });
+
+      // Mapa cargado: ocultar fallback
+      if (fallbackEl) fallbackEl.style.display = 'none';
+
+      const btns = document.querySelectorAll<HTMLButtonElement>('.local-btn');
+      btns.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          if ((e.target as HTMLElement).closest('a')) return;
+          const id = btn.dataset.local!;
+          const lat = parseFloat(btn.dataset.lat!);
+          const lng = parseFloat(btn.dataset.lng!);
+          const local = negocio.locales.find((l) => l.id === id);
+          if (!local) return;
+
+          map.flyTo([lat, lng], 16, { duration: 1.2 });
+          markers[id].openPopup();
+
+          btns.forEach((b) => {
+            const active = b === btn;
+            b.classList.toggle('bg-carbon-900', active);
+            b.classList.toggle('text-mozzarella', active);
+            b.classList.toggle('border-carbon-900', active);
+            b.classList.toggle('border-carbon-900/15', !active);
+            b.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+
+          renderHorarios(local);
+        });
+      });
+    } catch (err) {
+      // Leaflet bloqueado / falla → mantenemos fallback visible
+      console.warn('Mapa interactivo no disponible:', err);
+    }
+  }
+
+  // Inicializar tras pequeño delay para no bloquear paint inicial
+  const mapEl = document.getElementById('map');
+  if (mapEl && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          initMap();
+          io.disconnect();
+        }
+      },
+      { rootMargin: '400px' }
+    );
+    io.observe(mapEl);
+    // Fallback timeout
+    setTimeout(() => { if (mapEl.children.length === 0) initMap(); }, 2000);
+  } else if (mapEl) {
+    initMap();
+  }
+</script>
+
+<style>
+  .local-card-wrap { position: relative; }
+</style>

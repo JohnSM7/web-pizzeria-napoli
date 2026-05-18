@@ -1,0 +1,126 @@
+---
+import { negocio } from '~/data/negocio';
+---
+
+<section
+  id="top"
+  data-section-mood=""
+  class="relative min-h-[100svh] overflow-hidden flex flex-col justify-end pt-32 pb-12 px-4 sm:px-8"
+>
+  <!-- Capa de pizza GRANDE en el panel derecho, ENCIMA de la zona de CTAs -->
+  <div class="absolute inset-0 -z-10 pointer-events-none">
+    <div
+      class="absolute right-[-12%] top-1/2 -translate-y-1/2 w-[80vw] max-w-[820px] aspect-square rounded-full overflow-hidden scroll-rotate"
+      style="animation-duration: 80s;"
+    >
+      <img
+        src="/images/hero-pizza.jpg"
+        alt="Pizza napolitana recién salida del horno"
+        class="w-full h-full object-cover"
+        fetchpriority="high"
+      />
+    </div>
+    <!-- Halos de calor -->
+    <div class="absolute -left-40 -bottom-40 w-[600px] h-[600px] rounded-full bg-cornicione/35 blur-[120px]"></div>
+    <div class="absolute right-[15%] top-[5%] w-[420px] h-[420px] rounded-full bg-sanmarzano-500/15 blur-[100px]"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto w-full">
+    <!-- Insignias -->
+    <div class="flex flex-wrap items-center gap-3 mb-8 scroll-fade">
+      <span class="badge-soft badge-glass">
+        <span class="w-2 h-2 rounded-full bg-vesubio-500 animate-pulse"></span>
+        Solete Guía Repsol 2024
+      </span>
+      <span class="badge-soft badge-glass">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <strong class="font-semibold">{negocio.rating}</strong>
+        <span class="opacity-70">· {negocio.reseñas.toLocaleString('es-ES')} reseñas Google</span>
+      </span>
+      <span class="badge-soft badge-glass">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Desde {negocio.desde}
+      </span>
+    </div>
+
+    <!-- Eyebrow -->
+    <p class="font-script text-2xl sm:text-3xl text-sanmarzano-500 mb-2 scroll-fade">
+      Fatto a mano in Madrid
+    </p>
+
+    <!-- Tipografía gigante -->
+    <h1 class="liquid-display text-[clamp(3.5rem,15vw,15rem)] mb-2 scroll-reveal relative">
+      <span class="block">Piccola</span>
+      <span class="block liquid-display-italic text-vesubio-500 -mt-[0.1em]">Napoli</span>
+    </h1>
+
+    <!-- Bloque inferior con descripción + CTAs -->
+    <div class="mt-10 flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <p class="max-w-md text-lg leading-relaxed text-carbon-900/85 scroll-reveal">
+        <span class="hero-text-glass">
+          Auténtica pizza napolitana. Masa de <strong>72 horas</strong>, harinas italianas,
+          tomate San Marzano DOP y mozzarella fior di latte.
+        </span>
+        <span class="font-script text-2xl text-sanmarzano-500 block mt-2">Pizza · Casa · Famiglia.</span>
+      </p>
+
+      <!-- Cluster CTA con glass fuerte para legibilidad sobre la pizza -->
+      <div class="flex flex-wrap items-center gap-3 scroll-reveal cta-cluster">
+        <a href={negocio.reservas} target="_blank" rel="noopener" class="btn-magnetic">
+          <span class="btn-magnetic-text">
+            Reserva tu mesa
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+        <a href="#carta" class="btn-ghost-solid">
+          Ver la carta
+        </a>
+      </div>
+    </div>
+
+    <!-- Indicador scroll -->
+    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 opacity-60">
+      <span class="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+      <span class="w-px h-12 bg-current animate-pulse"></span>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Insignias con glass más opaco para leer sobre la pizza */
+  .badge-glass {
+    background: color-mix(in srgb, #FBF6EC 80%, transparent) !important;
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    border: 1px solid color-mix(in srgb, #1A1410 8%, transparent) !important;
+  }
+
+  /* Sombra glass sutil detrás del párrafo de descripción para legibilidad */
+  .hero-text-glass {
+    background: linear-gradient(120deg, color-mix(in srgb, #FBF6EC 92%, transparent), color-mix(in srgb, #FBF6EC 75%, transparent));
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 0.15em 0.35em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    border-radius: 4px;
+  }
+
+  /* Container CTA — fondo glass para cuando los botones caen sobre la pizza */
+  .cta-cluster {
+    position: relative;
+    padding: 0.75rem;
+    border-radius: 9999px;
+    background: color-mix(in srgb, #FBF6EC 55%, transparent);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    box-shadow: 0 12px 40px -16px rgba(26, 20, 16, 0.18);
+  }
+
+  @media (max-width: 767px) {
+    .cta-cluster {
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+</style>

@@ -1,0 +1,32 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import NavGlass from '~/components/NavGlass.astro';
+import FooterAmore from '~/components/FooterAmore.astro';
+---
+
+<BaseLayout title="Política de cookies · Piccola Napoli" description="Política de cookies de Piccola Napoli">
+  <NavGlass />
+  <main class="pt-40 pb-32 px-4 sm:px-8">
+    <article class="max-w-3xl mx-auto">
+      <p class="font-script text-3xl text-sanmarzano-500 mb-3">I nostri cookie</p>
+      <h1 class="liquid-display text-[clamp(2.5rem,6vw,5rem)] mb-10">Política de cookies</h1>
+
+      <div class="space-y-6 text-base leading-relaxed opacity-85">
+        <p>Las cookies son pequeños archivos que un sitio web guarda en tu navegador para recordar información sobre tu visita.</p>
+
+        <div>
+          <h2 class="accent-display text-xl mb-2">¿Qué cookies usamos?</h2>
+          <p>Solo las estrictamente necesarias para que la web funcione correctamente. No usamos cookies de seguimiento, publicidad ni de terceros.</p>
+        </div>
+
+        <div>
+          <h2 class="accent-display text-xl mb-2">Cómo gestionarlas</h2>
+          <p>Puedes configurar o eliminar las cookies en cualquier momento desde los ajustes de tu navegador (Chrome, Firefox, Safari, Brave, Edge).</p>
+        </div>
+      </div>
+
+      <a href="/" class="btn-ghost mt-12">← Volver al inicio</a>
+    </article>
+  </main>
+  <FooterAmore />
+</BaseLayout>

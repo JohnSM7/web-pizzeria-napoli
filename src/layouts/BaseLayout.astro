@@ -1,0 +1,239 @@
+---
+import '~/styles/global.css';
+// Fuentes self-hosted (sin CDN) para máxima compatibilidad con Brave/Shields y privacidad
+// Fraunces full incluye los axes opsz + SOFT + wght necesarios para la tipografía líquida
+import '@fontsource-variable/fraunces/full.css';
+import '@fontsource-variable/fraunces/full-italic.css';
+import '@fontsource-variable/inter';
+import '@fontsource/caprasimo';
+import '@fontsource/caveat/400.css';
+import '@fontsource/caveat/700.css';
+// Leaflet self-hosted (sin unpkg) para evitar bloqueos de Brave
+import 'leaflet/dist/leaflet.css';
+import { ClientRouter } from 'astro:transitions';
+import { negocio } from '~/data/negocio';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = 'Piccola Napoli · Auténtica pizza napolitana en Madrid',
+  description = 'Pizza · Casa · Famiglia. Desde 2010, masa de 72 horas, ingredientes honestos y recetas napolitanas. 4,7★ en Google. Solete Guía Repsol. Cuatro Caminos, Ríos Rosas, López de Hoyos.',
+  image = '/images/og-cover.jpg',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Restaurant',
+  '@id': 'https://piccolanapoli.es/#restaurant',
+  name: negocio.nombre,
+  description,
+  image: [`${Astro.site}images/hero-pizza.jpg`, `${Astro.site}images/horno-llamas.jpg`],
+  logo: `${Astro.site}images/logo.png`,
+  url: 'https://piccolanapoli.es',
+  telephone: negocio.telefono,
+  email: negocio.email,
+  priceRange: '€€',
+  servesCuisine: ['Italiana', 'Napolitana', 'Pizzería'],
+  acceptsReservations: 'True',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: String(negocio.rating),
+    reviewCount: String(negocio.reseñas),
+    bestRating: '5',
+    worstRating: '1',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: negocio.locales[0].direccion,
+    addressLocality: negocio.locales[0].ciudad,
+    postalCode: negocio.locales[0].cp,
+    addressCountry: 'ES',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: negocio.locales[0].lat,
+    longitude: negocio.locales[0].lng,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+      opens: '13:00',
+      closes: '23:15',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Friday', 'Saturday'],
+      opens: '13:00',
+      closes: '23:30',
+    },
+  ],
+  sameAs: [negocio.instagram, negocio.tiktok, negocio.facebook],
+  hasMenu: 'https://piccolanapoli.es/#carta',
+  foundingDate: '2010',
+};
+---
+
+<!doctype html>
+<html lang="es" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="canonical" href={canonical} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#FBF6EC" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1A1410" media="(prefers-color-scheme: dark)" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="restaurant.restaurant" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Piccola Napoli" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, Astro.site).href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site).href} />
+
+    <!-- Fuentes y Leaflet ahora se importan como módulos npm (self-hosted) en el frontmatter -->
+
+    <!-- JSON-LD Restaurant -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <ClientRouter />
+  </head>
+  <body class="grain antialiased">
+    <slot />
+
+    <!-- TODOS los efectos JS en un solo bloque is:inline.
+         Si Brave Shields, NoScript u otro bloquean este script, el sitio
+         queda 100% visible y funcional gracias a la degradación grácil del CSS. -->
+    <script is:inline>
+      (function () {
+        'use strict';
+        // 1) Marca el documento como JS-habilitado → CSS aplica los estados ocultos para reveals
+        document.documentElement.classList.add('js');
+
+        // 2) Reveal de entrada (IntersectionObserver con fallback)
+        function revealAll() {
+          var items = document.querySelectorAll('.scroll-reveal, .scroll-fade, .scroll-scale');
+          if (!('IntersectionObserver' in window)) {
+            for (var i = 0; i < items.length; i++) items[i].classList.add('in-view');
+            return;
+          }
+          var vh = window.innerHeight;
+          for (var j = 0; j < items.length; j++) {
+            var r = items[j].getBoundingClientRect();
+            if (r.top < vh * 0.95) items[j].classList.add('in-view');
+          }
+          var io = new IntersectionObserver(function (entries) {
+            for (var k = 0; k < entries.length; k++) {
+              if (entries[k].isIntersecting) {
+                entries[k].target.classList.add('in-view');
+                io.unobserve(entries[k].target);
+              }
+            }
+          }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+          for (var m = 0; m < items.length; m++) {
+            if (!items[m].classList.contains('in-view')) io.observe(items[m]);
+          }
+        }
+        revealAll();
+        document.addEventListener('astro:page-load', revealAll);
+
+        // 3) Mood cromático del body por sección
+        var moodSections = document.querySelectorAll('[data-section-mood]');
+        if (moodSections.length && 'IntersectionObserver' in window) {
+          var moodObs = new IntersectionObserver(function (entries) {
+            for (var i = 0; i < entries.length; i++) {
+              if (entries[i].isIntersecting && entries[i].intersectionRatio > 0.5) {
+                document.body.dataset.mood = entries[i].target.dataset.sectionMood || '';
+              }
+            }
+          }, { threshold: [0.5] });
+          for (var s = 0; s < moodSections.length; s++) moodObs.observe(moodSections[s]);
+        }
+
+        // 4) Parallax + rotate (cross-browser, sin scroll-timeline CSS)
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduceMotion) {
+          var parallaxEls = document.querySelectorAll('.scroll-parallax-slow');
+          var rotateEls = document.querySelectorAll('.scroll-rotate');
+          var ticking = false;
+          var lastScroll = 0;
+
+          function update() {
+            var vh = window.innerHeight;
+            for (var i = 0; i < parallaxEls.length; i++) {
+              var el = parallaxEls[i];
+              var r = el.getBoundingClientRect();
+              if (r.bottom < 0 || r.top > vh) continue;
+              var progress = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
+              var shift = Math.max(-1, Math.min(1, progress)) * 8;
+              el.style.transform = 'translate3d(0,' + shift + '%,0)';
+            }
+            for (var j = 0; j < rotateEls.length; j++) {
+              var angle = (lastScroll / 8) % 360;
+              rotateEls[j].style.transform = 'rotate(' + angle + 'deg)';
+            }
+            ticking = false;
+          }
+
+          function onScroll() {
+            lastScroll = window.scrollY || window.pageYOffset;
+            if (!ticking) {
+              (window.requestAnimationFrame || function (cb) { setTimeout(cb, 16); })(update);
+              ticking = true;
+            }
+          }
+
+          window.addEventListener('scroll', onScroll, { passive: true });
+          window.addEventListener('resize', onScroll, { passive: true });
+          update();
+        }
+
+        // 5) Efecto magnético en CTAs (solo escritorio con puntero fino)
+        var supportsHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        if (supportsHover) {
+          var magnets = document.querySelectorAll('.btn-magnetic');
+          for (var i = 0; i < magnets.length; i++) {
+            (function (btn) {
+              var text = btn.querySelector('.btn-magnetic-text');
+              btn.addEventListener('mousemove', function (e) {
+                var r = btn.getBoundingClientRect();
+                var x = e.clientX - r.left;
+                var y = e.clientY - r.top;
+                var mx = ((x - r.width / 2) / r.width) * 10;
+                var my = ((y - r.height / 2) / r.height) * 10;
+                btn.style.transform = 'translate3d(' + mx + 'px,' + my + 'px,0)';
+                if (text) text.style.transform = 'translate3d(' + (mx * 1.6) + 'px,' + (my * 1.6) + 'px,0)';
+                btn.style.setProperty('--mx', (x / r.width) * 100 + '%');
+                btn.style.setProperty('--my', (y / r.height) * 100 + '%');
+              });
+              btn.addEventListener('mouseleave', function () {
+                btn.style.transform = '';
+                if (text) text.style.transform = '';
+              });
+            })(magnets[i]);
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>

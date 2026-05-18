@@ -1,0 +1,43 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import NavGlass from '~/components/NavGlass.astro';
+import FooterAmore from '~/components/FooterAmore.astro';
+import { negocio } from '~/data/negocio';
+---
+
+<BaseLayout title="Política de privacidad · Piccola Napoli" description="Política de privacidad de Piccola Napoli">
+  <NavGlass />
+  <main class="pt-40 pb-32 px-4 sm:px-8">
+    <article class="max-w-3xl mx-auto">
+      <p class="font-script text-3xl text-sanmarzano-500 mb-3">La tua privacy</p>
+      <h1 class="liquid-display text-[clamp(2.5rem,6vw,5rem)] mb-10">Política de privacidad</h1>
+
+      <div class="space-y-6 text-base leading-relaxed opacity-85">
+        <p>En Piccola Napoli S.L. tratamos tus datos personales con el cuidado con el que tratamos la masa. Aquí te explicamos qué hacemos con ellos en cumplimiento del RGPD (UE) 2016/679 y la LOPDGDD 3/2018.</p>
+
+        <div>
+          <h2 class="accent-display text-xl mb-2">Responsable</h2>
+          <p>Piccola Napoli S.L., con domicilio en {negocio.locales[0].direccion}, {negocio.locales[0].cp} {negocio.locales[0].ciudad}.</p>
+        </div>
+
+        <div>
+          <h2 class="accent-display text-xl mb-2">Finalidad</h2>
+          <p>Gestión de reservas, atención a consultas y, si lo aceptas expresamente, envío de novedades de nuestra carta y promociones puntuales.</p>
+        </div>
+
+        <div>
+          <h2 class="accent-display text-xl mb-2">Legitimación</h2>
+          <p>Consentimiento del interesado y ejecución de un contrato (la reserva o pedido).</p>
+        </div>
+
+        <div>
+          <h2 class="accent-display text-xl mb-2">Tus derechos</h2>
+          <p>Acceso, rectificación, supresión, oposición, portabilidad y limitación del tratamiento. Puedes ejercerlos enviando un email a {negocio.email}.</p>
+        </div>
+      </div>
+
+      <a href="/" class="btn-ghost mt-12">← Volver al inicio</a>
+    </article>
+  </main>
+  <FooterAmore />
+</BaseLayout>

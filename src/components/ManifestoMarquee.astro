@@ -1,0 +1,88 @@
+---
+const palabras = ['Pizza', 'Casa', 'Famiglia', 'Tradizione', 'Forno a Legna', 'Mozzarella'];
+// Duplicamos la lista para crear loop continuo sin saltos
+const loop = [...palabras, ...palabras];
+---
+
+<section id="manifesto" data-section-mood="dorado" class="relative py-32 overflow-hidden">
+  <!-- Imagen de horno -->
+  <div class="absolute inset-0 -z-10">
+    <img
+      src="/images/horno-llamas.jpg"
+      alt=""
+      class="w-full h-full object-cover opacity-25 scroll-parallax-slow"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-mozzarella via-transparent to-mozzarella"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 mb-16">
+    <div class="grid md:grid-cols-12 gap-8 items-end">
+      <div class="md:col-span-4 scroll-fade">
+        <p class="font-script text-3xl text-sanmarzano-500 mb-2">Il nostro manifesto</p>
+        <p class="badge-soft">2010 — 2026 · 16 años</p>
+      </div>
+      <div class="md:col-span-8">
+        <p class="liquid-display-italic text-[clamp(2rem,5vw,4.5rem)] scroll-reveal">
+          No vendemos pizza. <br/>
+          <span class="text-vesubio-500">Servimos memoria.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Marquee gigante (loop continuo) -->
+  <div class="marquee-viewport select-none">
+    <div class="marquee-track-inf">
+      {loop.map((p, i) => (
+        <span class="marquee-item">
+          <span class={`liquid-display text-[clamp(4rem,12vw,11rem)] whitespace-nowrap leading-none ${i % 2 ? 'text-outline' : 'text-vesubio-500'}`}>
+            {p}
+          </span>
+          <span class="text-sanmarzano-500 text-6xl mx-8 leading-none">•</span>
+        </span>
+      ))}
+    </div>
+  </div>
+
+  <!-- Trío de pilares -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 mt-24 grid md:grid-cols-3 gap-8">
+    {[
+      { num: '72h', txt: 'Fermentación lenta de la masa para una digestibilidad perfecta' },
+      { num: '485°C', txt: 'Temperatura del horno de leña, herencia directa de Nápoles' },
+      { num: '90s', txt: 'Tiempo exacto de cocción para sellar sabor y mantener jugosidad' },
+    ].map((p) => (
+      <div class="scroll-reveal">
+        <p class="liquid-display text-7xl text-sanmarzano-500 mb-2">{p.num}</p>
+        <p class="text-base opacity-80 max-w-xs">{p.txt}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .marquee-viewport {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+  .marquee-track-inf {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: scroll-x 42s linear infinite;
+  }
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  @keyframes scroll-x {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track-inf { animation: none; }
+  }
+</style>

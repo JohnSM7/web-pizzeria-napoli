@@ -1,0 +1,43 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import NavGlass from '~/components/NavGlass.astro';
+import FooterAmore from '~/components/FooterAmore.astro';
+import { negocio } from '~/data/negocio';
+---
+
+<BaseLayout title="Aviso legal · Piccola Napoli" description="Aviso legal de Piccola Napoli">
+  <NavGlass />
+  <main class="pt-40 pb-32 px-4 sm:px-8">
+    <article class="max-w-3xl mx-auto prose-base">
+      <p class="font-script text-3xl text-sanmarzano-500 mb-3">Informazione legale</p>
+      <h1 class="liquid-display text-[clamp(2.5rem,6vw,5rem)] mb-10">Aviso legal</h1>
+
+      <div class="space-y-6 text-base leading-relaxed opacity-85">
+        <p>En cumplimiento del artículo 10 de la Ley 34/2002 (LSSICE), se informa de los siguientes datos:</p>
+
+        <div>
+          <h2 class="accent-display text-xl mb-2">Titular</h2>
+          <p>Piccola Napoli S.L. — Restaurante italiano de cocina napolitana.</p>
+        </div>
+
+        <div>
+          <h2 class="accent-display text-xl mb-2">Domicilio social</h2>
+          <p>{negocio.locales[0].direccion}, {negocio.locales[0].cp} {negocio.locales[0].ciudad}, España</p>
+        </div>
+
+        <div>
+          <h2 class="accent-display text-xl mb-2">Contacto</h2>
+          <p>Teléfono: {negocio.telefono}<br/>Email: {negocio.email}</p>
+        </div>
+
+        <div>
+          <h2 class="accent-display text-xl mb-2">Condiciones de uso</h2>
+          <p>El acceso y uso de este sitio web atribuye la condición de usuario y supone la aceptación plena de las presentes condiciones. Los contenidos están sujetos a derechos de propiedad intelectual de Piccola Napoli S.L.</p>
+        </div>
+      </div>
+
+      <a href="/" class="btn-ghost mt-12">← Volver al inicio</a>
+    </article>
+  </main>
+  <FooterAmore />
+</BaseLayout>
