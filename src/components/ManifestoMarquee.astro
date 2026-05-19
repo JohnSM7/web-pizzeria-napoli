@@ -60,31 +60,6 @@ const loop = [...palabras, ...palabras];
   </div>
 </section>
 
-<style>
-  .marquee-viewport {
-    width: 100%;
-    overflow: hidden;
-    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  }
-  .marquee-track-inf {
-    display: flex;
-    align-items: center;
-    width: max-content;
-    animation: scroll-x 42s linear infinite;
-  }
-  .marquee-item {
-    display: inline-flex;
-    align-items: center;
-    flex-shrink: 0;
-  }
-  @keyframes scroll-x {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-  /* Marquee decorativo: animación sutil que siempre se muestra.
-     Si prefers-reduced-motion está activo, ralentizamos pero no paramos. */
-  @media (prefers-reduced-motion: reduce) {
-    .marquee-track-inf { animation-duration: 120s; }
-  }
-</style>
+<!-- Estilos del marquee movidos a global.css para evitar que el optimizador
+     CSS de Vite/Astro elimine los keyframes scoped al minificar -->
+

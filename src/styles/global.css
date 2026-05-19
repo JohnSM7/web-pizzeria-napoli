@@ -87,20 +87,58 @@
   .scroll-parallax-slow {
     will-change: transform;
   }
+}
 
-  /* Rotación de pizza: animación CSS pura, infinita, decorativa.
-     Visible siempre — incluso con reduce-motion (ralentizada). */
-  .scroll-rotate {
-    will-change: transform;
-    animation: pizza-spin 80s linear infinite;
-  }
-  @keyframes pizza-spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .scroll-rotate { animation-duration: 240s; }
-  }
+/* ===== ANIMACIONES CRÍTICAS — fuera de @layer para evitar purging ===== */
+/* Los keyframes se declaran SIN @layer para que el optimizador CSS no los elimine */
+
+@keyframes pizza-spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes marquee-scroll-x {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.scroll-rotate {
+  will-change: transform;
+  animation-name: pizza-spin !important;
+  animation-duration: 60s !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: infinite !important;
+  animation-play-state: running !important;
+}
+
+.marquee-viewport {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.marquee-track-inf {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+  animation-name: marquee-scroll-x !important;
+  animation-duration: 32s !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: infinite !important;
+  animation-play-state: running !important;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-rotate { animation-duration: 180s !important; }
+  .marquee-track-inf { animation-duration: 90s !important; }
 }
 
 @layer components {
